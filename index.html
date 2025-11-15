@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi IA</title>
+
+  <!-- Script oficial del chat de n8n -->
+  <script src="https://cdn.jsdelivr.net/npm/@n8n/chat@latest" defer></script>
+</head>
+<body>
+  <!-- Contenedor donde aparecerá el chat -->
+  <div id="n8n-chat"></div>
+
+  <script>
+    createChat({
+      webhookUrl: "AQUI-VA-TU-WEBHOOK", // Pega tu webhook de n8n
+      webhookConfig: {
+        method: "POST",
+        headers: {}
+      },
+
+      target: "#n8n-chat",
+      mode: "window",
+      chatInputKey: "chatInput",
+      chatSessionKey: "sessionId",
+      loadPreviousSession: true,
+      metadata: {},
+      showWelcomeScreen: false,
+      defaultLanguage: "es",
+
+  
+      initialMessages: [
+        "¡Hola! 👋",
+        "Mi nombre es Nathan. ¿En qué puedo ayudarte hoy?"
+      ],
+
+      i18n: {
+        es: {
+          title: "¡Hola! 👋",
+          subtitle: "Inicia una conversación. Estoy aquí para ayudarte 24/7.",
+          footer: "",
+          getStarted: "Nueva conversación",
+          inputPlaceholder: "Escribe tu pregunta..."
+        }
+      },
+
+      enableStreaming: false
+    });
+  </script>
+</body>
+</html>
